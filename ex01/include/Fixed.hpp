@@ -10,17 +10,19 @@ private:
 	static const int _fractionalBits = 8;
 
 public:
-	// constructor
+	// Orthodox Canonical Form
 	Fixed();
-
-	// copy constructorr
 	Fixed(const Fixed &other);
-
-	// copy asignment operator overload.
 	Fixed &operator=(const Fixed &other);
-
-	// destructor
 	~Fixed();
+
+	// ex constructor
+	Fixed(const int	val);
+	Fixed(const float	val);
+
+	// convert
+	float	toFloat( void ) const;
+	int		toInt( void ) const;
 
 	// getter
 	int getRawBits() const;
@@ -28,4 +30,6 @@ public:
 	// setter
 	void setRawBits(int const raw);
 };
+
+std::ostream &operator<<(std::ostream& os, const Fixed &fixed);
 #endif
